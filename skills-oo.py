@@ -1,16 +1,4 @@
-Part 2: Classes and Init Methods
-
-Directions: Make Python classes that could store the each of the 
-following three pieces of data. 
-
-Use the dictionaries below as examples to guide you in 
-creating class definitions for the following objects. 
-
-Define an __init__ method to allow callers of this class to provide 
-initial values for each attribute.
-
-Student
-
+#1. Students
 class Students(object):
     """Initialize Student attributes"""
 
@@ -18,73 +6,60 @@ class Students(object):
         self.first_name = first_name
         self.last_name = last_name
         self.address = address
+
+#2. Questions
+
+class Questions(object):
+    """class for storing question and answer data"""
+    
+    def __init__(self, question, correct_answer):
+        self.question = question
+        self.correct_answer = correct_answer
         
- Write a class that can store data like this:
+#Midterm
+# Q1 = Question('What is the capital of Alberta?', 'Edmonton')
+# Q2 = Question('Who is the author of Python?', 'Guido Van Rossum')
+#Final
+# Q3 = Question("Who is Ubermelon's competition?", 'Squysh')
+# Q4 = Question("What is Balloonicorn's favorite color?", Sparkles')
 
-{'first_name': 'Jasmine',
- 'last_name': 'Debugger',
- 'address': '0101 Computer Street'}
+#3. Exam
 
-{'first_name': 'Jaqui',
- 'last_name': 'Console',
- 'address': '888 Binary Ave'}
-
-Question
-Questions are a question & a correct answer; 
-here are two example questions. 
-
-Write a class that could store data like this:
+class Exam(object):
+    """Exams look up to Questions for their data"""
+    
+    def __init__(self, exam_type):
+        #Your __init__ function should take a name for the exam as a parameter
+        self.exam_type = exam_type
+        #How do I initialize an attribute?initialize the questions attribute 
+        #as an empty list in the body__init__ function
+        self.questions = []
 
 
-class Question(object):
-pass
+#Part 3 METHODS
+add a method to the Exam class which take a question and a correct_answer
+    def add_question(question, correct_answer):
+        makes a Question from these?
 
-{'question': 'What is the capital of Alberta?',
- 'correct_answer': 'Edmonton'}
 
-{'question': 'Who is the author of Python?',
- 'correct_answer': 'Guido Van Rossum'}
+        exam = Exam('midterm')
+        exam.add_question(
+            'What is the method for adding an element to a set?'
+            '.add()')
 
-Exam
-Notice that an Exam should have an attribute called questions. 
-Simply initialize the questions attribute as an empty list in 
-the body __init__ function. 
+2 - Add a method to the Question class that prints the question to the console 
+and prompts the user for an answer.
 
-We’ll deal with adding questions to the exam later on in this assignment. 
+It should return True or False depending on whether the correct answer matches the user's answer.
 
-Your __init__ function should take a name for the exam as a parameter.
+for example
+question = Question('What is the method for adding an element to a set?'
+            '.add()')
+question.ask_and_evaluate()
+What is the method for adding an element to a set? > .add()
+True
 
-A Note on Attributes
-Though we’ve mainly seen attributes that are strings or integers, 
-remember: attributes can also be lists, and many other data types. 
 
-In the case of our questions attribute, we’ll have a list of Question objects.
-
-For example, here are two exams. Make a class that could store data like this:
-
-class Exams(object):
-    pass
-
-{'name':'Midterm',
- 'questions': [
-
-    {'question':'What is the capital of Alberta?',
-     'correct_answer': 'Edmonton'},
-
-    {'question': 'Who is the author of Python?',
-     'correct_answer': 'Guido Van Rossum' }
-
-  ]
-}
-
-{'name':'Final',
- 'questions': [
-
-    {'question':"Who is Ubermelon's competition?",
-     'correct_answer': 'Sqysh'},
-
-    {'question': "What is Balloonicorn's favorite color?",
-     'correct_answer': 'Sparkles'}
-
-  ]
-}
+3- Add a method to the Exam class which administers all of the exam's '
+questions and returns the user's score at the end.'
+S building on ou code from problem 2, here's how the Exam class shoud work:'
